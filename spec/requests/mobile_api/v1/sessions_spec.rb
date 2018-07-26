@@ -6,7 +6,7 @@ describe MobileApi::V1::SessionsController, type: :controller do
 
   describe '#create' do
 
-    let!(:params) { {user: {email: user.email, password: 'password'}} }
+    let!(:params) { {session: {email: user.email, password: 'password'}} }
 
     it 'sign in users' do
       post :create, params: params
@@ -15,11 +15,20 @@ describe MobileApi::V1::SessionsController, type: :controller do
     end
 
     context 'when user does not exist' do
-      let!(:params) { {user: {email: 'unknown@user.com', password: 'password'}} }
+      let!(:params) { {session: {email: 'unknown@user.com', password: 'password'}} }
 
       it 'renders 404' do
         post :create, params: params
         expect(response.response_code).to eq(404)
+      end
+    end
+
+    context 'when password is wrong' do
+      let!(:params) { {session: {email: user.email, password: 'wrong-password'}} }
+
+      it 'renders 403' do
+        post :create, params: params
+        expect(response.response_code).to eq(403)
       end
     end
   end
