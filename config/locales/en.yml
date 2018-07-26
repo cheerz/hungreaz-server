@@ -1,3 +1,4 @@
 en:
   errors:
     not_found: 'The resource was not found.'
+    forbidden: "Sorry, that's not possible"

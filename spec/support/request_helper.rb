@@ -14,6 +14,10 @@ module RequestHelper
     end
   end
 
+  def set_header_session_token
+    request.headers['SESSION-TOKEN'] = '2736254372658328327364523'
+  end
+
   private
 
   def symbolize jzon

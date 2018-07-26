@@ -18,4 +18,16 @@ class User < ApplicationRecord
     self.nickname = nickname.downcase
   end
 
+  def set_session_token!
+    update! session_token: generate_session_token
+  end
+
+  def reset_session_token!
+    update! session_token: nil
+  end
+
+  def generate_session_token
+    SecureRandom.hex(30)
+  end
+
 end

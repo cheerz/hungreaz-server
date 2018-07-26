@@ -6,6 +6,7 @@ class MobileApi::V1::UsersController < MobileApi::V1::BaseController
     user = User.new(user_params)
     if user.save
       sign_in :user, user
+      after_signing_in user
       render_json user
     else
       render_error :unprocessable_entity

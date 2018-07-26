@@ -57,7 +57,7 @@ describe MobileApi::V1::UsersController, type: :controller do
     let!(:user) { FactoryBot.create :user }
 
     it 'renders current user data' do
-      sign_in user
+      set_header_session_token
       get :show
       expect(response.response_code).to eq(200)
       expect(response_json).to eq(user.slice(*%w(email nickname)))
