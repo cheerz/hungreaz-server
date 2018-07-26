@@ -38,6 +38,7 @@ class MobileApi::V1::PlacesController < MobileApi::V1::BaseController
       :name,
       :lng,
       :lat,
+      :address,
       :first_image_url,
       :second_image_url,
       :third_image_url,

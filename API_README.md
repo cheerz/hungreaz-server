@@ -124,6 +124,7 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
         "name": "Cheerz Palace"
         "lng": 2.32590994,
         "lat": 48.88060188,
+        "address": "7 rue de Bucarest",
         "first_image_url": "http://..." ,
         "second_image_url": "http://...",
         "third_image_url": "http://...",
@@ -143,6 +144,7 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
         "name": "Cheerz Palace"
         "lng": 2.32590994,
         "lat": 48.88060188,
+        "address": "7 rue de Bucarest",
         "first_image_url": "http://..." ,
         "second_image_url": "http://...",
         "third_image_url": "http://...",
@@ -177,6 +179,7 @@ The default value for `meter_distance` is 500.
             "name": "Cheerz Palace"
             "lng": 2.32590994,
             "lat": 48.88060188,
+            "address": "7 rue de Bucarest",
             "first_image_url": "http://..." ,
             "second_image_url": "http://...",
             "third_image_url": "http://...",

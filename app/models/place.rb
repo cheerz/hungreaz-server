@@ -9,7 +9,7 @@ class Place < ApplicationRecord
   has_many :place_tags
   has_many :tags, through: :place_tags
 
-  validates :name, :lng, :lat, :place_category, presence: true
+  validates :name, :lng, :lat, :address, :place_category, presence: true
   validates :name, uniqueness: true
   validates :lng,  uniqueness: {scope: [:lat]}
 
