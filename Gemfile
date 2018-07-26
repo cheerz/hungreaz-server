@@ -46,7 +46,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'rspec-rails'
   # Factory DSL for fake data
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   # An old gem that generates fake mail/names, lorem ipsum
   gem 'faker', git: 'https://github.com/stympy/faker.git'
 end
