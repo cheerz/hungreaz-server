@@ -1,4 +1,6 @@
-class MobileApi::V1::LoginsController < MobileApi::V1::BaseController
+class MobileApi::V1::SessionsController < Devise::SessionsController
+
+  include Concerns::SerializationConcern
 
   skip_before_action :authenticate_user!, raise: false
 
@@ -6,7 +8,8 @@ class MobileApi::V1::LoginsController < MobileApi::V1::BaseController
     user = User.find_by(email: email_param)
     if user&.valid_password?(password_param)
       sign_in :user, user
-      render_json user
+      user.remember_me!
+      render_json user, MobileApi::V1::UserSerializer
     else
       render_json nil
     end

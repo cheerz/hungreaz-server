@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MobileApi::V1::LoginsController, type: :controller do
+describe MobileApi::V1::SessionsController, type: :controller do
 
   let!(:user) { User.first }
 
