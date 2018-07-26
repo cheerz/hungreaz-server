@@ -1,6 +1,6 @@
 class MobileApi::V1::LoginsController < MobileApi::V1::BaseController
 
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, raise: false
 
   def create
     user = User.find_by(email: email_param)

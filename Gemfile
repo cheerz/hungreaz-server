@@ -12,6 +12,8 @@ gem 'pg'
 
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git', branch: '0-9-stable'
+
 gem 'devise'
 
 # Use Puma as the app server
@@ -42,7 +44,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'rspec-rails'
   # Factory DSL for fake data
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
   # An old gem that generates fake mail/names, lorem ipsum
   gem 'faker', git: 'https://github.com/stympy/faker.git'
 end
