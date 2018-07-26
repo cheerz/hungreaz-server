@@ -17,6 +17,7 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git', branch: '0-9-stable'
 
 gem 'devise'
+gem 'slim-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

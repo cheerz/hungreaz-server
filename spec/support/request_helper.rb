@@ -1,23 +1,11 @@
 module RequestHelper
 
-  def mobile_response_hash
-    @mobile_response_hash ||= hash[:response]
+  def response_hash
+    @response_hash ||= symbolize(response_json)
   end
 
-  def hash
-    @hash ||= symbolize(json)
-  end
-
-  def set_token value
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(value)
-  end
-
-  def mash
-    @mash ||= Hashie::Mash.new(json)
-  end
-
-  def json
-    @json ||= JSON.parse(response.body)
+  def response_json
+    @response_json ||= JSON.parse(response.body)
   end
 
   def is_delayed? expected_delayed_job_args

@@ -37,4 +37,22 @@ describe MobileApi::V1::UsersController, type: :controller do
     end
   end
 
+  describe '#show' do
+    let!(:user) { FactoryBot.create :user }
+
+    it 'renders current user data' do
+      sign_in user
+      get :show
+      expect(response.response_code).to eq(200)
+      expect(response_json).to eq(user.slice(*%w(email first_name last_name)))
+    end
+
+    context 'when user is not signed in' do
+
+      it 'renders a 404' do
+        get :show
+        expect(response.response_code).to eq(404)
+      end
+    end
+  end
 end

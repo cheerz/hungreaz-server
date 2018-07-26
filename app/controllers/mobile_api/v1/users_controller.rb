@@ -1,6 +1,6 @@
 class MobileApi::V1::UsersController < MobileApi::V1::BaseController
 
-  skip_before_action :authenticate_user!, raise: false
+  skip_before_action :authenticate_user!, only: %i(create), raise: false
 
   def create
     user = User.new(user_params)
@@ -10,6 +10,10 @@ class MobileApi::V1::UsersController < MobileApi::V1::BaseController
     else
       render_error :unprocessable_entity
     end
+  end
+
+  def show
+    render_json current_user
   end
 
   private

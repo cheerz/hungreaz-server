@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace 'v1', path: '1' do
       resource  :login, only: %i(create)
       resources :users, only: %i(create)
+      resource  :user,  only: %i(show)
     end
   end
 
