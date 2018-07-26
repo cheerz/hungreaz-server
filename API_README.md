@@ -38,13 +38,15 @@ API specifications
 #### Example request:
     {
         "user": {
-            "email": 'jean@cheerz.com',
-            "password": 'password',
-            *"nickname": 'el-caid'
+            "email": "jean@cheerz.com",
+            "password": "password",
+            *"sexe": "male",    
+            *"nickname": "el-caid"
         }
     }
 
 If blank, the `nickname` will be set with the first part of the email (here: "jean").
+`sexe` parameter values: `male` / `female`
 
 #### Example response:
 
@@ -53,7 +55,7 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
 
 ##### Body
     {
-        "email": "jean@cheerz.com'",
+        "email": "jean@cheerz.com",
         "nickname": jean"
     }  
 

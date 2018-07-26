@@ -60,7 +60,7 @@ describe MobileApi::V1::UsersController, type: :controller do
       set_header_session_token
       get :show
       expect(response.response_code).to eq(200)
-      expect(response_json).to eq(user.slice(*%w(email nickname)))
+      expect(response_json).to eq(user.slice(*%w(email nickname)).merge('sexe' => nil))
     end
 
     context 'when user is not signed in' do
