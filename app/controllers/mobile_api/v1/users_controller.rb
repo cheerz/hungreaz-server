@@ -19,7 +19,7 @@ class MobileApi::V1::UsersController < MobileApi::V1::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name)
+    params.require(:user).permit(:email, :password, :nickname)
   end
 
 end

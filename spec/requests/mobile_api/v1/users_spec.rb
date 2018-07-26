@@ -4,30 +4,46 @@ describe MobileApi::V1::UsersController, type: :controller do
 
   describe '#create' do
 
+    let!(:email)  { 'jean@cheerz.com' }
     let!(:params) {
-      {
-        user: {
-          email:     'jean@cheerz.com',
-          password:   'password',
-          first_name: 'Jean',
-          last_name:  'Marc',
-        }
-      }
+      {user: {email: email, password: 'password', nickname: 'Jean'}}
     }
 
     it 'sign in users' do
       post :create, params: params
-      expected_user = User['jean@cheerz.com']
+      expected_user = User[email]
       expect(response.response_code).to eq(200)
       expect(expected_user).not_to eq(nil)
-      expect(expected_user.first_name).to eq('Jean')
-      expect(expected_user.last_name).to eq('Marc')
+      expect(expected_user.nickname).to eq('jean')
+    end
+
+    context 'when email has an invalid syntax' do
+      let!(:email) { 'jean-cheerz.com-pwet' }
+
+      it 'renders a 422' do
+        post :create, params: params
+        expect(response.response_code).to eq(422)
+      end
+    end
+
+    context 'when no nickname is provided' do
+      let!(:params) {
+        {user: {email: 'HeyHey@cheerz.com', password: 'password'}}
+      }
+
+      it 'uses the email to create one' do
+        post :create, params: params
+        expected_user = User['heyhey@cheerz.com']
+        expect(response.response_code).to eq(200)
+        expect(expected_user).not_to eq(nil)
+        expect(expected_user.nickname).to eq('heyhey')
+      end
     end
 
     context 'when email is already taken' do
       let!(:existing_user) { FactoryBot.create :user }
       let!(:params)        {
-        {user: existing_user.attributes.slice(*%w(email password first_name last_name))}
+        {user: existing_user.attributes.slice(*%w(email password nickname))}
       }
 
       it 'renders 403' do
@@ -44,7 +60,7 @@ describe MobileApi::V1::UsersController, type: :controller do
       sign_in user
       get :show
       expect(response.response_code).to eq(200)
-      expect(response_json).to eq(user.slice(*%w(email first_name last_name)))
+      expect(response_json).to eq(user.slice(*%w(email nickname)))
     end
 
     context 'when user is not signed in' do
