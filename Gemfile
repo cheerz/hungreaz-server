@@ -40,13 +40,14 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'pry-rails'
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  # Factory DSL for fake data
+  gem 'factory_girl_rails'
+  # An old gem that generates fake mail/names, lorem ipsum
+  gem 'faker', git: 'https://github.com/stympy/faker.git'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
