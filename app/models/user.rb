@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :sexe, inclusion: { in: [:male, :female, nil] }
+  validates :sexe, inclusion: { in: ['male', 'female', nil] }
 
   before_validation do
     self.nickname ||= email.split('@').first
