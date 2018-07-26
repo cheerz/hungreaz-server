@@ -18,6 +18,7 @@ gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_
 
 gem 'devise'
 gem 'slim-rails'
+gem 'geokit-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

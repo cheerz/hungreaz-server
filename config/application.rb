@@ -17,5 +17,7 @@ module Casadelrestau
 
     config.autoload_paths   += Dir["#{config.root}/lib/**/"]
     config.eager_load_paths += Dir["#{config.root}/lib/**/"]
+
+    config.active_record.belongs_to_required_by_default = false
   end
 end

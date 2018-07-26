@@ -2,3 +2,9 @@ en:
   errors:
     not_found: 'The resource was not found.'
     forbidden: "Sorry, that's not possible"
+    unprocessable_entity: 'The server was not able to process the request.'
+    missing_parameter: "Some parameters are missing"
+
+  validations:
+    event:
+      stop_at: 'Stop at cannot be before or equal to start at'

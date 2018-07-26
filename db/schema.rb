@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726141254) do
+ActiveRecord::Schema.define(version: 20180726160355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_at"
+    t.datetime "stop_at"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_events_on_place_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.float "lng"
+    t.float "lat"
+    t.string "first_image_url"
+    t.string "second_image_url"
+    t.string "third_image_url"
+    t.string "fourth_image_url"
+    t.string "fifth_image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_places_on_user_id"
+  end
+
+  create_table "user_events", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_user_events_on_event_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

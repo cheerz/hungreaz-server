@@ -1,7 +1,5 @@
 class MobileApi::V1::SessionsController < MobileApi::V1::BaseController
 
-  include Concerns::SerializationConcern
-
   skip_before_action :authenticate_user!, only: %i(create), raise: false
 
   def create
