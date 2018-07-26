@@ -6,6 +6,8 @@ class Place < ApplicationRecord
   belongs_to :place_category
 
   has_many :events
+  has_many :place_tags
+  has_many :tags, through: :place_tags
 
   validates :name, :lng, :lat, :place_category, presence: true
   validates :name, uniqueness: true

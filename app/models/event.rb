@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   validates :start_at, :stop_at, presence: true
   validate :datetime_range
 
-  scope :future, ->{ where('start_at > ?', Time.now) }
+  scope :future, ->{ where('stop_at BETWEEN ? AND ?', Time.now, Time.now.end_of_day) }
 
   def datetime_range
     if start_at >= stop_at

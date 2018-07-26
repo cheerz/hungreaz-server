@@ -17,3 +17,8 @@ Place.create! name: 'Bim Bim Bap',      lat: 48.880249,   lng: 2.325751,   place
 Place.create! name: 'Stade de France',  lat: 48.881250,   lng: 2.327746,   place_category: food_category
 Place.create! name: 'Métro 46',         lat: 48.879755,   lng: 2.329247,   place_category: drinks_category
 Place.create! name: "Oulala c'est bon", lat: 48.882027,   lng: 2.328218,   place_category: food_category
+
+tag_values = ['Fast food', 'Hangover', 'Take away', 'Asiatic', 'Cheap', 'French', 'Big portion', 'Terrasse', 'Salad', 'Healthy', 'Bio', 'On-site', 'Italian', 'Corporate', 'Drinks', 'Late lunch', 'World']
+tag_values.each do |value|
+  Tag.create tag: value.downcase.gsub(/\s/, '_'), name: value
+end
