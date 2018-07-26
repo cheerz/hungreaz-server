@@ -23,8 +23,10 @@ API specifications
     - [create](#1-show)
     - [destroy](#2-destroy)
 3. [Places Controller](#places-controller)
-    - [create](#1-show)
+    - [create](#1-create)
     - [index](#2-index)
+4. [PlaceCategories Controller](#place_categories-controller)
+    - [index](#1-index)
 
 
 ## Users Controller
@@ -124,7 +126,9 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
         "second_image_url": "http://...",
         "third_image_url": "http://...",
         "fourth_image_url": "http://...",
-        "fifth_image_url": "http://..."
+        "fifth_image_url": "http://...",
+        "place_category_tag": "food",
+        "user_email": "jean@cheerz.com"
     }
 
 #### Example response:
@@ -142,6 +146,8 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
         "third_image_url": "http://...",
         "fourth_image_url": "http://...",
         "fifth_image_url": "http://...",
+        "place_category_tag": "food",
+        "user_email": "jean@cheerz.com",
         "events": []
     }
 
@@ -174,6 +180,8 @@ The default value for `meter_distance` is 500.
             "third_image_url": "http://...",
             "fourth_image_url": "http://...",
             "fifth_image_url": "http://...",
+            "place_category_tag": "food",
+            "user_email": "jean@cheerz.com",
             "events": [
                 {
                     "start_at": "2018-07-26 21:10:50 UTC", 
@@ -185,4 +193,28 @@ The default value for `meter_distance` is 500.
         {
             ...
         },
+    ]
+
+
+
+## PlaceCategories Controller
+
+### 1. Index
+
+    GET /place_categories
+
+##### Header
+    200 OK
+
+#### Example response:
+    [
+        {
+            "tag": "food",
+            "name": "Food",
+        },
+        {
+            "tag": "drinks",
+            "name": "Drinks",
+        },
+        ...
     ]

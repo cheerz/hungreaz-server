@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
-    nickname      'John'
-    email         'john@doe.com'
+    nickname      Faker::Name.first_name
+    email         Faker::Internet.email
     password      'passord'
     session_token '2736254372658328327364523'
   end

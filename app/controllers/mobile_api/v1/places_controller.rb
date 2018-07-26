@@ -43,6 +43,8 @@ class MobileApi::V1::PlacesController < MobileApi::V1::BaseController
       :third_image_url,
       :fourth_image_url,
       :fifth_image_url,
+      :place_category_tag,
+      :user_email,
     )
   end
 

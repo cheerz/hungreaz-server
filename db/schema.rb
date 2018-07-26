@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726160355) do
+ActiveRecord::Schema.define(version: 20180726174702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20180726160355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_events_on_place_id"
+  end
+
+  create_table "place_categories", force: :cascade do |t|
+    t.string "tag"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag"], name: "index_place_categories_on_tag"
   end
 
   create_table "places", force: :cascade do |t|
@@ -36,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180726160355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "place_category_id"
+    t.index ["place_category_id"], name: "index_places_on_place_category_id"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
