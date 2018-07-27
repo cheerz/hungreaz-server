@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe MobileApi::V1::PlacesController, type: :controller do
 
-  let!(:place) { Place.find_by name: 'Cheerz Palace' }
+  let!(:place) { Place.all.sample }
 
   describe '#index' do
     let!(:user)  { FactoryBot.create :user }
@@ -37,7 +37,7 @@ describe MobileApi::V1::PlacesController, type: :controller do
       expected_place = Place.find_by(name: place_object.name)
       expect(expected_place).not_to be(nil)
       expect(response_json['user_email']).to eq(place_user.email)
-      expect(response_json['place_category_name']).to eq(place_category.name)
+      expect(response_json['place_category_tag']).to eq(place_category.tag)
     end
   end
 end

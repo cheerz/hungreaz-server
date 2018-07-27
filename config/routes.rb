@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resource  :user,             only: %i(show)
       resources :places,           only: %i(index create)
       resources :place_categories, only: %i(index)
+      resources :events,           only: %i(create)
     end
   end
 

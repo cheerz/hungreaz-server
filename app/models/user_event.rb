@@ -5,4 +5,8 @@ class UserEvent < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event}
 
+  def user_email= email_value
+    self.user = User[email_value]
+  end
+
 end

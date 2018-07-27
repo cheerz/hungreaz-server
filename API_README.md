@@ -141,6 +141,7 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
 
 ##### Body
     {
+        "id": 1,
         "name": "Cheerz Palace"
         "lng": 2.32590994,
         "lat": 48.88060188,
@@ -176,6 +177,7 @@ The default value for `meter_distance` is 500.
 ##### Body
     [
         {
+            "id": 1,
             "name": "Cheerz Palace"
             "lng": 2.32590994,
             "lat": 48.88060188,
@@ -189,6 +191,7 @@ The default value for `meter_distance` is 500.
             "user_email": "jean@cheerz.com",
             "events": [
                 {
+                    "id": 1,
                     "start_at": "2018-07-26 21:10:50 UTC", 
                     "stop_at": "2018-07-26 22:20:50 UTC", 
                     "participants_emails": ["jean", "daniela", "lord-duck"]

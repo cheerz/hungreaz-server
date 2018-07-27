@@ -2,6 +2,7 @@
   User,
   Place,
   PlaceCategory,
+  Tag,
 ].each(&:destroy_all)
 
 [

@@ -2,7 +2,7 @@ class Event < ApplicationRecord
 
   belongs_to :place
 
-  has_many :user_events
+  has_many :user_events, dependent: :destroy
   has_many :users, through: :user_events
 
   validates :start_at, :stop_at, presence: true

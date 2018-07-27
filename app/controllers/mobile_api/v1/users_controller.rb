@@ -7,10 +7,8 @@ class MobileApi::V1::UsersController < MobileApi::V1::BaseController
     if user.save
       sign_in :user, user
       after_signing_in user
-      render_json user
-    else
-      render_error :unprocessable_entity
     end
+    render_json user
   end
 
   def show
