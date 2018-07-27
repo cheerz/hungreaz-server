@@ -9,8 +9,8 @@ describe MobileApi::V1::EventsController, type: :controller do
     let!(:params) {
       {
         event: {
-          start_at:   1.hour.from_now,
-          stop_at:    2.hour.from_now,
+          start_at:   1.hour.from_now.strftime('%H:%M'),
+          stop_at:    2.hour.from_now.strftime('%H:%M'),
           place_id:   place.id,
         }
       }
@@ -31,8 +31,8 @@ describe MobileApi::V1::EventsController, type: :controller do
       let!(:params) {
         {
           event: {
-            start_at:   20.minutes.from_now,
-            stop_at:    40.minutes.from_now,
+            start_at:   20.minutes.from_now.strftime('%H:%M'),
+            stop_at:    40.minutes.from_now.strftime('%H:%M'),
             place_id:   place.id,
           }
         }

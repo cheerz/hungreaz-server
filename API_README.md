@@ -20,7 +20,7 @@ API specifications
     - [create](#1-create)
     - [show](#2-show)
 2. [Sessions Controller](#sessions-controller)
-    - [create](#1-show)
+    - [create](#1-create)
     - [destroy](#2-destroy)
 3. [Places Controller](#places-controller)
     - [create](#1-create)
@@ -197,7 +197,7 @@ The default value for `meter_distance` is 500.
                     "id": 1,
                     "start_at": "12:15", 
                     "stop_at": "12:30", 
-                    "participants_emails": ["jean", "daniela", "lord-duck"]
+                    "participants": ["jean", "daniela", "lord-duck"]
                 },
             ],
             "tags": ["Fast food", "Cheap", "Bio"]
@@ -257,7 +257,7 @@ The default value for `meter_distance` is 500.
         "place_id ": "1",
         "start_at": "12:15", 
         "stop_at": "12:30", 
-        "participants_emails": ["jean"]
+        "participants": ["jean"]
     }
 
 
@@ -279,7 +279,7 @@ The default value for `meter_distance` is 500.
         "place_id ": "1",
         "start_at": "12:15", 
         "stop_at": "12:30", 
-        "participants_emails": ["jean"]
+        "participants": ["jean"]
     }
 
 ### 2. Destroy
@@ -297,5 +297,5 @@ The default value for `meter_distance` is 500.
         "place_id ": "1",
         "start_at": "12:15", 
         "stop_at": "12:30", 
-        "participants_emails": []
+        "participants": []
     }

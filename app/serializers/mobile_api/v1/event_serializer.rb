@@ -2,7 +2,7 @@ class MobileApi::V1::EventSerializer < ActiveModel::Serializer
 
   self.root = false
 
-  attributes :id, :place_id, :start_at, :stop_at, :participants_emails
+  attributes :id, :place_id, :start_at, :stop_at, :participants
 
   def start_at
     object.start_at.strftime('%H:%M')
@@ -12,8 +12,8 @@ class MobileApi::V1::EventSerializer < ActiveModel::Serializer
     object.start_at.strftime('%H:%M')
   end
 
-  def participants_emails
-    object.users.pluck(&:nickname)
+  def participants
+    object.users.pluck(:nickname)
   end
 
 end
