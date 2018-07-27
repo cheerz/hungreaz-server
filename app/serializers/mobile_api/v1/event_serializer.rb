@@ -9,7 +9,7 @@ class MobileApi::V1::EventSerializer < ActiveModel::Serializer
   end
 
   def stop_at
-    object.start_at.strftime('%H:%M')
+    object.stop_at.strftime('%H:%M')
   end
 
   def participants
