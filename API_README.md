@@ -27,7 +27,11 @@ API specifications
     - [index](#2-index)
 4. [PlaceCategories Controller](#place_categories-controller)
     - [index](#1-index)
-
+5. [Events Controller](#events-controller)
+    - [create](#1-create)
+6. [EventRegistrationsController](#event_registrations-controller)
+    - [create](#1-create)
+    - [destroy](#2-destroy)
 
 ## Users Controller
 
@@ -226,3 +230,72 @@ The default value for `meter_distance` is 500.
         },
         ...
     ]
+
+
+
+## EventsCategories Controller
+
+### 1. Create
+
+    POST /events
+
+#### Example request:
+    event: {
+        "start_at": "12h00",
+        "stop_at": "12h15",
+        "place_id": "1"
+    }
+
+#### Example response:
+
+##### Header
+    200 OK
+
+##### Body
+    {
+        "id": "1",
+        "place_id ": "1",
+        "start_at": "12h00",
+        "stop_at": "12h15",
+        "participants_emails": ["jean"]
+    }
+
+
+
+## EventRegistrations Controller
+
+### 1. Create
+
+    POST /events/:event_id/event_registration
+
+#### Example response:
+
+##### Header
+    200 OK
+
+##### Body
+    {
+        "id": "1",
+        "place_id ": "1",
+        "start_at": "12h00",
+        "stop_at": "12h15",
+        "participants_emails": ["jean"]
+    }
+
+### 2. Destroy
+
+    DELETE /events/:event_id/event_registration
+
+#### Example response:
+
+##### Header
+    200 OK
+
+##### Body
+    {
+        "id": "1",
+        "place_id ": "1",
+        "start_at": "12h00",
+        "stop_at": "12h15",
+        "participants_emails": []
+    }

@@ -19,7 +19,7 @@ class MobileApi::V1::BaseController < ApplicationController
 
   def authenticate_user!
     unless current_user
-      unless request.headers['SESSION-TOKEN'].nil? || User.find_by(session_token: request.headers['SESSION-TOKEN'])
+      unless header_session_token.present? && User.find_by(session_token: header_session_token)
         render_error :forbidden
       end
     end
@@ -35,6 +35,10 @@ class MobileApi::V1::BaseController < ApplicationController
 
   def controller_version
     'v1'
+  end
+
+  def header_session_token
+    request.headers['SESSION-TOKEN']
   end
 
 end

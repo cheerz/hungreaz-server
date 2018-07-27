@@ -3,7 +3,7 @@ require 'spec_helper'
 describe MobileApi::V1::EventsController, type: :controller do
 
   let!(:place) { Place.all.sample }
-  let!(:user)  { User.all.sample }
+  let!(:user)  { FactoryBot.create :user }
 
   describe '#create' do
     let!(:params) {
@@ -12,12 +12,13 @@ describe MobileApi::V1::EventsController, type: :controller do
           start_at:   1.hour.from_now,
           stop_at:    2.hour.from_now,
           place_id:   place.id,
-          user_email: user.email,
-        }
+        },
+        user_email: user.email,
       }
     }
 
     it 'creates an event' do
+      set_header_session_token
       post :create, params: params
       expect(response.response_code).to eq(200)
       events = place.reload.events

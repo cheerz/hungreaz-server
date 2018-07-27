@@ -67,7 +67,7 @@ describe MobileApi::V1::UsersController, type: :controller do
 
       it 'renders a 404' do
         get :show
-        expect(response.response_code).to eq(404)
+        expect(response.response_code).to eq(403)
       end
     end
   end
