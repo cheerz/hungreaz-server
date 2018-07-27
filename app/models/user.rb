@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def generate_session_token
-    "#{ Time.now.to_i } + #{ SecureRandom.hex(30) }"
+    "#{ Time.now.to_i }#{ SecureRandom.hex(30) }"
   end
 
 end

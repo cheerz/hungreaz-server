@@ -19,7 +19,7 @@ class Place < ApplicationRecord
   delegate :tag, :name, to: :place_category, prefix: true
 
   def self.within_distance meter_distance, position_values
-    meter_distance    = meter_distance || DEFAULT_DISTANCE
+    meter_distance    = meter_distance || DEFAULT_METER_DISTANCE
     km_distance_param = meter_distance / 1000.0
     within km_distance_param, origin: position_values
   end
