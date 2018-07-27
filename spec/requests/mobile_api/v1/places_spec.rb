@@ -35,7 +35,7 @@ describe MobileApi::V1::PlacesController, type: :controller do
 
     it 'creates a new place' do
       set_header_session_token
-      post :create, params: {place: place_attributes.merge(user_email: user.email, place_category_tag: place_category.tag)}
+      post :create, params: {place: place_attributes.merge(place_category_tag: place_category.tag)}
       expect(response_json).to include(place_attributes)
       expected_place = Place.find_by(name: place_object.name)
       expect(expected_place).not_to be(nil)

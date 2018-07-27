@@ -3,7 +3,7 @@ class MobileApi::V1::EventsController < MobileApi::V1::BaseController
   def create
     event = Event.new(event_params)
     if event.save
-      event.user_events.create user_email: user_email_param
+      event.user_events.create user: current_user
     end
     render_json event
   end
@@ -16,10 +16,6 @@ class MobileApi::V1::EventsController < MobileApi::V1::BaseController
       :stop_at,
       :place_id,
     )
-  end
-
-  def user_email_param
-    params[:user_email]
   end
 
 end

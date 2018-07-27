@@ -1,5 +1,7 @@
 class Place < ApplicationRecord
 
+  DEFAULT_METER_DISTANCE = 500
+
   acts_as_mappable default_units: :kms
 
   belongs_to :user
@@ -16,8 +18,10 @@ class Place < ApplicationRecord
   delegate :email,      to: :user,           prefix: true, allow_nil: true
   delegate :tag, :name, to: :place_category, prefix: true
 
-  def user_email= email_value
-    self.user = User[email_value]
+  def self.within_distance meter_distance, position_values
+    meter_distance    = meter_distance || DEFAULT_DISTANCE
+    km_distance_param = meter_distance / 1000.0
+    within km_distance_param, origin: position_values
   end
 
   def place_category_tag= tag_value

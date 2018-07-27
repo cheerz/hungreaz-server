@@ -8,3 +8,4 @@ en:
   validations:
     event:
       stop_at: 'Stop at cannot be before or equal to start at'
+      overlap: 'Time range overlaps with another slot'

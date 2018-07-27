@@ -134,8 +134,7 @@ If blank, the `nickname` will be set with the first part of the email (here: "je
         "third_image_url": "http://...",
         "fourth_image_url": "http://...",
         "fifth_image_url": "http://...",
-        "place_category_tag": "food",
-        "user_email": "jean@cheerz.com"
+        "place_category_tag": "food"
     }
 
 #### Example response:

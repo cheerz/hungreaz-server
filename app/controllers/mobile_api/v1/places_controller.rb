@@ -1,7 +1,5 @@
 class MobileApi::V1::PlacesController < MobileApi::V1::BaseController
 
-  DEFAULT_METER_DISTANCE = 500
-
   before_action :check_parameters, only: %i(index)
 
   rescue_from(ApplicationError::MissingParameter) do
@@ -9,22 +7,17 @@ class MobileApi::V1::PlacesController < MobileApi::V1::BaseController
   end
 
   def index
-    places = Place.within(km_distance_param, origin: position_params)
+    places = Place.within_distance(params[:meter_distance]&.to_i, position_params)
     render_json places
   end
 
   def create
-    place = Place.new(place_params)
+    place = current_user.places.new(place_params)
     if place.save
       render_json place
     else
       render_error :unprocessable_entity
     end
-  end
-
-  def km_distance_param
-    meter_distance = params[:meter_distance].to_i || DEFAULT_DISTANCE
-    meter_distance / 1000.0
   end
 
   private
@@ -45,7 +38,6 @@ class MobileApi::V1::PlacesController < MobileApi::V1::BaseController
       :fourth_image_url,
       :fifth_image_url,
       :place_category_tag,
-      :user_email,
     )
   end
 
