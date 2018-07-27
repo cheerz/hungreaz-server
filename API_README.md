@@ -195,8 +195,8 @@ The default value for `meter_distance` is 500.
             "events": [
                 {
                     "id": 1,
-                    "start_at": "2018-07-26 21:10:50 UTC", 
-                    "stop_at": "2018-07-26 22:20:50 UTC", 
+                    "start_at": "12:15", 
+                    "stop_at": "12:30", 
                     "participants_emails": ["jean", "daniela", "lord-duck"]
                 },
             ]
@@ -240,8 +240,8 @@ The default value for `meter_distance` is 500.
 
 #### Example request:
     event: {
-        "start_at": "12h00",
-        "stop_at": "12h15",
+        "start_at": "12:15", 
+        "stop_at": "12:30", 
         "place_id": "1"
     }
 
@@ -254,8 +254,8 @@ The default value for `meter_distance` is 500.
     {
         "id": "1",
         "place_id ": "1",
-        "start_at": "12h00",
-        "stop_at": "12h15",
+        "start_at": "12:15", 
+        "stop_at": "12:30", 
         "participants_emails": ["jean"]
     }
 
@@ -276,8 +276,8 @@ The default value for `meter_distance` is 500.
     {
         "id": "1",
         "place_id ": "1",
-        "start_at": "12h00",
-        "stop_at": "12h15",
+        "start_at": "12:15", 
+        "stop_at": "12:30", 
         "participants_emails": ["jean"]
     }
 
@@ -294,7 +294,7 @@ The default value for `meter_distance` is 500.
     {
         "id": "1",
         "place_id ": "1",
-        "start_at": "12h00",
-        "stop_at": "12h15",
+        "start_at": "12:15", 
+        "stop_at": "12:30", 
         "participants_emails": []
     }
