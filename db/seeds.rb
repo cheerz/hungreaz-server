@@ -67,3 +67,35 @@ tag_values = ['Fast food', 'Hangover', 'Take away', 'Asiatic', 'Cheap', 'French'
 tag_values.each do |value|
   Tag.create tag: value.downcase.gsub(/\s/, '_'), name: value
 end
+
+{
+  'OUR'                  => ['Fast food','Hangover','Take away'],
+  'AUGUSTIN'             => ['Fast food','Hangover','Take away'],
+  'LE KIM'               => ['Asiatic', 'Take away', 'Cheap'],
+  'GAVOTTES'             => ['French', 'Hangover', 'Big portion', 'Cheap'],
+  'VITAMINE'             => ['Cheap', 'Big portion', 'Take away', 'Terrasse'],
+  'POPOTE'               => ['Salad', 'Healthy', 'Take away', 'Bio'],
+  "DÉJEUNER SUR L'HERBE" => ['French', 'Healthy', 'Take away', 'On-site'],
+  'LUCKY LUCIANO'        => ['Italian', 'Take away', 'On-site', 'Hangover', 'Corporate'],
+  "LES CAVES POPULAIRES" => ['Cheap', 'Wine'],
+  'JAMES BUN'            => ['Asiatic', 'Take away', 'Big portion'],
+  "LITTLE ITALY"         => ['Italian', 'Take away', 'On-site', 'Hangover', 'Corporate', 'Terrasse'],
+  "LE FRENCH BURGER"     => ['Hangover', 'Big portion', 'Fast food', 'Late lunch'],
+  "Nausicaa"             => ['World', 'Take away'],
+  "LOYAL"                => ['Healthy', 'Salad', 'On-site', 'Corporate'],
+  "YENO"                 => ['Asiatic', 'Take away', 'Cheap'],
+  "I LOVE BO BUN"        => ['Asiatic', 'Take away', 'Big portion'],
+  "LA RÉCOLTE"           => ['Bio', 'Salad', 'Take away'],
+  "CHEERZ"               => ['Drinks', 'Terrasse'],
+  "PECO-PECO"            => ['Healthy', 'Asiatic', 'On-site'],
+  "TSUBAME"              => ['Healthy', 'Asiatic', 'On-site'],
+  "MC DONALD'S"          => ['Hangover', 'Fast food'],
+  "LES TANINS"           => ['Beer', 'Wine'],
+  "BRUSSEL BEER PROJECT" => ['Beer'],
+  "BAR À BULLES"         => ['Terrasse', 'Wine', 'Cocktail', 'Chic'],
+  "UN BISTROT EN VILLE"  => ['Beer', 'Terrasse', 'Wine'],
+}.each do |place_name, tags|
+  place = Place.find_by name: place_name
+  place_tags = Tag.where(tag: tags)
+  place.tags = place_tags
+end

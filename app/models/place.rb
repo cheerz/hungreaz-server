@@ -28,4 +28,8 @@ class Place < ApplicationRecord
     self.place_category = PlaceCategory[tag_value]
   end
 
+  def user_email= email_value
+    self.user = User[email_value]
+  end
+
 end
