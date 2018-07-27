@@ -199,7 +199,8 @@ The default value for `meter_distance` is 500.
                     "stop_at": "12:30", 
                     "participants_emails": ["jean", "daniela", "lord-duck"]
                 },
-            ]
+            ],
+            "tags": ["Fast food", "Cheap", "Bio"]
         },
         {
             ...

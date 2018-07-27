@@ -4,12 +4,16 @@ class MobileApi::V1::PlaceSerializer < ActiveModel::Serializer
 
   attributes :id, :name, :lng, :lat, :address, :first_image_url, :second_image_url,
              :third_image_url, :fourth_image_url, :fifth_image_url, :user_email,
-             :place_category_tag, :events
+             :place_category_tag, :events, :tags
 
   def events
     object.events.future.map do |event|
       MobileApi::V1::PlaceEventSerializer.new(event)
     end
+  end
+
+  def tags
+    object.tags.order(:name).pluck(:name)
   end
 
 end

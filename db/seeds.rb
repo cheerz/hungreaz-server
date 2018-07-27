@@ -63,9 +63,6 @@ PlaceCategory.create! tag: :drinks, name: 'Drinks'
 end
 
 
-
-# NOT USED YET
-
 tag_values = ['Fast food', 'Hangover', 'Take away', 'Asiatic', 'Cheap', 'French', 'Big portion', 'Terrasse', 'Salad', 'Healthy', 'Bio', 'On-site', 'Italian', 'Corporate', 'Drinks', 'Late lunch', 'World']
 tag_values.each do |value|
   Tag.create tag: value.downcase.gsub(/\s/, '_'), name: value

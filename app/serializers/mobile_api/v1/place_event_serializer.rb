@@ -5,11 +5,11 @@ class MobileApi::V1::PlaceEventSerializer < ActiveModel::Serializer
   attributes :id, :start_at, :stop_at, :participants_emails
 
   def start_at
-    start_at.strftime('%H:%M')
+    object.start_at.strftime('%H:%M')
   end
 
   def stop_at
-    start_at.strftime('%H:%M')
+    object.start_at.strftime('%H:%M')
   end
 
   def participants_emails
